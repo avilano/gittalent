@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+    != LRScript
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+  body#top
+    block content
+// Custom stylesheet
+link(rel='stylesheet', href='/stylesheets/style.css')
+// Bootstrap core CSS
+link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+// Font Awesome
+link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+// Bootstrap Social
+link(href='/bootstrap-social-gh-pages/bootstrap-social.css', rel='stylesheet')
+// IE10 viewport hack for Surface/desktop Windows 8 bug
+link(href='/stylesheets/ie10-viewport-bug-workaround.css', rel='stylesheet')
+// Custom styles for this template
+link(href='/stylesheets/sticky-footer-navbar.css', rel='stylesheet')

@@ -1,0 +1,53 @@
+{
+  "name": "openshift-express-example",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": {
+    "name": "Olmo Maldonado",
+    "email": "ibolmo@gmail.com",
+    "url": "http://github.com/ibolmo/"
+  },
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "dotenv": "^2.0.0",
+    "express": "~4.13.4",
+    "express-session": "^1.14.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-wait": "0.0.2",
+    "jade": "~1.11.0",
+    "mongoose": "^4.5.4",
+    "morgan": "~1.7.0",
+    "octonode": "^0.7.6",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^1.4.8",
+    "whatwg-fetch": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^6.0.0",
+    "express-livereload": "0.0.24"
+  },
+  "bundleDependencies": [],
+  "main": "server.js"
+}
