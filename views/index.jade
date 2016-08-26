@@ -26,17 +26,7 @@ block content
             ul.dropdown-menu
               li
                 a(href='#') Logout
-              //li
-              //  a(href='#') Another action
-              //li
-              //  a(href='#') Something else here
-              //li.divider(role='separator')
-              //li.dropdown-header Nav header
-              //li
-              //  a(href='#') Separated link
-              //li
-              //a(href='#') One more separated link
-  // Begin page content
+
   .container
     .page-header
       h1 Welcome Github composer!
@@ -51,12 +41,14 @@ block content
     p.lead
       | or input a github username.
     br
-    form(action='post')
+    form(action='/', method='post')
       input(type='text', id='gitusr', name='gitusr', placeholder='Github Username')
       input(type='submit', value='Submit').btn.btn-primary.btn-md.submit
       
       
   .stats(align='center')
+    br
+    br
     br
     table.table.table-hover
       tr
@@ -76,6 +68,7 @@ block content
   footer.footer
     .container
       p.text-muted By // Avilano
+      
   //
     Bootstrap core JavaScript
     ==================================================

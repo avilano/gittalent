@@ -19,18 +19,25 @@ router.get('/gitacces', function(req, res, next){
   });
 });
 
-//router.get('/gitusr=:username', function(req, res, next){
+router.get('/', function(req, res) {
+    console.log(req.body);
+});
 
-router.post('/', function(req, res, next){
-client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
-  if (err) {return next(err);}
-  console.log(body)
-  res.send('<pre>' + JSON.stringify(body, null, '  '));
+router.get('/gituser/:username', function(req, res, next){
+  client.get('/users/' + req.params.username, {}, function (err, status, body, headers) {
+    if (err) {return next(err);}
+    console.log(body)
+    res.send('<pre>' + JSON.stringify(body, null, '  '));
   });
 });
-  // res.render('score', {
-  //   title: 'Git Talent'
-  // });
+
+router.post('/', function(req, res, next){
+  client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
+    if (err) {return next(err);}
+    console.log(body)
+    res.send('<pre>' + JSON.stringify(body, null, '  '));
+  });
+});
 
 
 

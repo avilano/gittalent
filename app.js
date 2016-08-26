@@ -6,7 +6,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const favicon = require('serve-favicon');
+//const favicon = require('serve-favicon');
 const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const session = require('express-session');
@@ -15,8 +15,6 @@ const mongoose = require('mongoose');
 const debug = require('debug')('app');
 
 const routes = require('./routes/index');
-
-
 const User = require('./models/User');
 
 require('dotenv').config();
@@ -42,10 +40,10 @@ app.set('view engine', 'jade');
 //Client ID for GitHub as local for Jade
 app.locals.gitClientId = process.env.CLIENT_ID;
 
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, './public')));
