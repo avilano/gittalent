@@ -38,6 +38,7 @@ router.post('/', function(req, res, next){
     console.log(body)
 
     res.render("user", {
+      title: body.login + ' talent!',
       data: body
 
     });
