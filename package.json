@@ -1,5 +1,5 @@
 {
-  "name": "openshift-express-example",
+  "name": "gittalent",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -8,9 +8,9 @@
     "start": "node server.js"
   },
   "author": {
-    "name": "Olmo Maldonado",
-    "email": "ibolmo@gmail.com",
-    "url": "http://github.com/ibolmo/"
+    "name": "Alberto Vilano",
+    "email": "vira0092@gmail.com",
+    "url": "http://github.com/avilano/"
   },
   "engines": {
     "node": ">= 0.6.0",
