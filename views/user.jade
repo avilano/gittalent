@@ -44,7 +44,6 @@ block content
       h2 Hello #{data.name}
     p.lead
       | Here are your github stats:
-      | #{data.email}
         
     .stats(align='center')
       
@@ -54,6 +53,9 @@ block content
         tr
           td User
           td.user #{data.login}
+        tr
+          td Email
+          td.email #{data.email}
         tr
           td Repositories
           td.repo #{data.public_repos}
