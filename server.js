@@ -23,7 +23,7 @@ function terminator(signal) {
   if (!signal) {
     debug(new Date() + ' : Node server stopped.');
   } else {
-    debug(new Date()' : Received ' + signal + ' - terminating sample app ...');
+    debug(new Date() + ' : Received ' + signal + ' - terminating sample app ...');
     process.exit(1);
   }
 }
@@ -35,7 +35,7 @@ const server = http.createServer(app);
 app.io.attach(server);
 
 server.listen(port, ipaddress, () => {
-  debug(new Date()' : Node server started on ' + ipaddress + ' : ' + port + ' ...');
+  debug(new Date() + ' : Node server started on ' + ipaddress + ' : ' + port + ' ...');
 });
 
 server.on('error', (error) => {
