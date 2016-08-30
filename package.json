@@ -17,6 +17,7 @@
     "npm": ">= 1.0.0"
   },
   "dependencies": {
+    "babel": "^6.5.2",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
