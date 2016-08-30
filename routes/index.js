@@ -33,13 +33,15 @@ router.get('/gituser/:username', function(req, res, next){
 
 router.post('/', function(req, res, next){
   client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
-    if (err) {return next(err);}
+    if (err) return next(err);
+
     console.log(body)
-    res.send('<pre>' + JSON.stringify(body, null, '  '));
+
+    res.render("user", {
+      data: body
+
+    });
   });
 });
-
-
-
 
 module.exports = router;

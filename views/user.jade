@@ -26,30 +26,50 @@ block content
             ul.dropdown-menu
               li
                 a(href='#') Logout
-
+              //li
+              //  a(href='#') Another action
+              //li
+              //  a(href='#') Something else here
+              //li.divider(role='separator')
+              //li.dropdown-header Nav header
+              //li
+              //  a(href='#') Separated link
+              //li
+              //a(href='#') One more separated link
+      // /.nav-collapse
+          
+  // Begin page content
   .container
     .page-header
-      h1 Welcome Github composer!
+      h2 Hello #{data.name}
     p.lead
-      | Please login to fetch your information.
+      | Here are your github stats:
+      | #{data.email}
+        
+    .stats(align='center')
+      
       br
       br
-      a(position="relative", onclick="location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=#{gitClientId};'").btn.btn-block.btn-social.btn-github
-        span.fa.fa-github
-        |  Sign in with Github
-    //button#logout(onclick='logout()').btn.btn-primary.btn-lg.btn-block Logout
-    p.lead
-      | or input a github username.
-    br
-    form(action='/', method='post')
-      input(type='text', id='gitusr', name='gitusr', placeholder='Github Username')
-      input(type='submit', value='Submit').btn.btn-primary.btn-md.submit
-      
-      
+      table.table.table-hover
+        tr
+          td User
+          td.user #{data.login}
+        tr
+          td Repositories
+          td.repo #{data.public_repos}
+        tr
+          td Followers
+          td.followers #{data.followers}
+        tr
+          td Following
+          td.following #{data.following}
+        tr
+          td Stars
+          td.stars 4
+  
   footer.footer
     .container
       p.text-muted By // Avilano
-      
   //
     Bootstrap core JavaScript
     ==================================================
