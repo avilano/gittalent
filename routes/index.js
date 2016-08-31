@@ -1,7 +1,5 @@
 const express = require('express');
-const gs = require('github-scraper');
 const github = require('octonode');
-
 const router = express.Router();
 const client = github.client();
 
