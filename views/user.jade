@@ -39,6 +39,13 @@ block content
       // /.nav-collapse
           
   // Begin page content
+
+  script.
+    function sendMsg() {
+    var msg = "Boop!";
+    alert(msg);
+    }
+    
   .container
     .page-header
       h2 Hello #{data.name}
@@ -46,7 +53,9 @@ block content
       | Here are your github stats:
         
     .stats(align='center')
-      
+    
+      img(src="#{data.avatar_url}", alt="#{data.login}'s profile picture", onload='sendMsg()').gitpicture
+    
       br
       br
       table.table.table-hover

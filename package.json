@@ -31,7 +31,6 @@
     "gulp-nodemon": "^2.1.0",
     "gulp-wait": "0.0.2",
     "jade": "~1.11.0",
-    "mongoose": "^4.5.4",
     "morgan": "~1.7.0",
     "octonode": "^0.7.6",
     "passport": "^0.3.2",
