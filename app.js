@@ -11,24 +11,9 @@ const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const session = require('express-session');
 const socketio = require('socket.io');
-const mongoose = require('mongoose');
 const debug = require('debug')('app');
 
 const routes = require('./routes/index');
-const User = require('./models/User');
-
-require('dotenv').config();
-
-const DB_NAME = process.env.DB_NAME;
-const MONGO_PASS = process.env.MONGO_DB_PASS;
-const MONGO_HOST = process.env.OPENSHIFT_MONGODB_DB_HOST;
-const MONGO_PORT = process.env.OPENSHIFT_MONGODB_DB_PORT;
-
-if (MONGO_HOST) {
-  mongoose.connect(`mongodb://admin:${MONGO_PASS}@${MONGO_HOST}:${MONGO_PORT}/${DB_NAME}`);
-} else {
-  mongoose.connect(`mongodb://localhost/${DB_NAME}`);
-}
 
 const app = express();
 const io = global.io = app.io = socketio();
