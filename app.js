@@ -1,4 +1,4 @@
-// global io
+'use strict';
 
 const express = require('express');
 const path = require('path');
@@ -15,6 +15,9 @@ const debug = require('debug')('app');
 
 const routes = require('./routes/index');
 
+require('dotenv').config();
+
+
 const app = express();
 const io = global.io = app.io = socketio();
 
@@ -22,10 +25,7 @@ const io = global.io = app.io = socketio();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-//Client ID for GitHub as local for Jade
-app.locals.gitClientId = process.env.CLIENT_ID;
-
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 
 app.use(bodyParser.json());

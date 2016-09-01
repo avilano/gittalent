@@ -3,12 +3,29 @@ const github = require('octonode');
 const router = express.Router();
 const client = github.client();
 
-const gitUser = 'avilano';
-
 // GET home page
 router.get('/', function(req, res, next){
+
+  console.log(process.env.CLIENT_ID);
+
   res.render('index', {
+    title: 'Git Talent',
+    gitClientId: process.env.CLIENT_ID
+  });
+  next();
+});
+
+router.get('/gitacces', function(req, res, next){
+  res.render('score', {
     title: 'Git Talent'
+  });
+});
+
+router.get('/home', function(req, res, next){
+  res.render('index', {
+    title: 'Git Talent',
+    gitClientId: process.env.CLIENT_ID
+
   });
 });
 
@@ -32,12 +49,6 @@ router.post('/', function(req, res, next){
       });
     }
 
-  });
-});
-
-router.get('/gitacces', function(req, res, next){
-  res.render('score', {
-    title: 'Git Talent'
   });
 });
 

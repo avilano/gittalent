@@ -7,7 +7,7 @@ html(lang="en")
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
-  body#top
+  body(onload='sendMsg()')#top
     block content
 // Custom stylesheet
 link(rel='stylesheet', href='/stylesheets/style.css')
@@ -17,7 +17,5 @@ link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
 link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet')
 // Bootstrap Social
 link(href='/bootstrap-social-gh-pages/bootstrap-social.css', rel='stylesheet')
-// IE10 viewport hack for Surface/desktop Windows 8 bug
-link(href='/stylesheets/ie10-viewport-bug-workaround.css', rel='stylesheet')
 // Custom styles for this template
 link(href='/stylesheets/sticky-footer-navbar.css', rel='stylesheet')

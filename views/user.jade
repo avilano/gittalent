@@ -14,36 +14,19 @@ block content
       #navbar.collapse.navbar-collapse
         ul.nav.navbar-nav
           li.active
-            a(href='#') Home
+            a(href='/home') Home
           li
-            a(href='#about') About
+            a(href='/about') About
           li
-            a(href='#contact') Contact
-          li.dropdown
-            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-              | User 
-              span.caret
-            ul.dropdown-menu
-              li
-                a(href='#') Logout
-              //li
-              //  a(href='#') Another action
-              //li
-              //  a(href='#') Something else here
-              //li.divider(role='separator')
-              //li.dropdown-header Nav header
-              //li
-              //  a(href='#') Separated link
-              //li
-              //a(href='#') One more separated link
+            a(href='/contact') Contact
       // /.nav-collapse
           
   // Begin page content
 
   script.
     function sendMsg() {
-    var msg = "Boop!";
-    alert(msg);
+    //- var msg = "Boop!";
+    //- alert(msg);
     }
     
   .container
@@ -54,7 +37,7 @@ block content
         
     .stats(align='center')
     
-      img(src="#{data.avatar_url}", alt="#{data.login}'s profile picture", onload='sendMsg()').gitpicture
+      img(src="#{data.avatar_url}", alt="#{data.login}'s profile picture").gitPicture
     
       br
       br
@@ -89,5 +72,3 @@ block content
   script.
     window.jQuery || document.write('<script src="/js/jquery-3.1.0.min.js"><\\/script>')
   script(src='/js/bootstrap.min.js')
-  // IE10 viewport hack for Surface/desktop Windows 8 bug
-  script(src='/js/ie10-viewport-bug-workaround.js')
