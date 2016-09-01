@@ -12,35 +12,32 @@ router.get('/', function(req, res, next){
   });
 });
 
+router.post('/', function(req, res, next){
+  client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
+    if (err) {
+
+      console.log(`Error: User ${req.body.gitusr} cannot be found.`)
+      res.render("error", {
+        title: `${req.body.gitusr} not found`,
+        errMsg: `The username ${req.body.gitusr} does not exist.`,
+        err: err
+      });
+
+    } else {
+
+      console.log(body)
+      res.render("user", {
+        title: body.login + ' talent!',
+        data: body
+      });
+    }
+
+  });
+});
+
 router.get('/gitacces', function(req, res, next){
   res.render('score', {
     title: 'Git Talent'
-  });
-});
-
-router.get('/', function(req, res) {
-    console.log(req.body);
-});
-
-router.get('/gituser/:username', function(req, res, next){
-  client.get('/users/' + req.params.username, {}, function (err, status, body, headers) {
-    if (err) {return next(err);}
-    console.log(body)
-    res.send('<pre>' + JSON.stringify(body, null, '  '));
-  });
-});
-
-router.post('/', function(req, res, next){
-  client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
-    if (err) return next(err);
-
-    console.log(body)
-
-    res.render("user", {
-      title: body.login + ' talent!',
-      data: body
-
-    });
   });
 });
 
