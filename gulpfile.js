@@ -22,6 +22,7 @@ gulp.task('jade', () => gulp.src('views/**/*.jade').pipe(livereload()));
 gulp.task('watch', () => {
   gulp.watch('public/**/*.css', ['css']);
   gulp.watch('public/**/*.js', ['js']);
+  gulp.watch('routes/**/*.js', ['js']);
   gulp.watch('views/**/*.jade', ['jade']);
 });
 
@@ -41,5 +42,4 @@ gulp.task('start', () => {
 });
 
 gulp.task('build', ['js']);
-
 gulp.task('default', ['start', 'watch']);

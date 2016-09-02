@@ -10,7 +10,7 @@ block content
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        a.navbar-brand(href='#') Git Talent
+        a.navbar-brand(href='https://github.com/avilano/gittalent') Git Talent
       #navbar.collapse.navbar-collapse
         ul.nav.navbar-nav
           li.active
@@ -23,11 +23,7 @@ block content
           
   // Begin page content
 
-  script.
-    function sendMsg() {
-    //- var msg = "Boop!";
-    //- alert(msg);
-    }
+  script(src="routes/user.js", charset="utf-8")
     
   .container
     .page-header
@@ -42,6 +38,8 @@ block content
       br
       br
       table.table.table-hover
+        tr
+          td.bio #{data.bio}
         tr
           td User
           td.user #{data.login}

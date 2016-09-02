@@ -14,7 +14,7 @@ block content
       #navbar.collapse.navbar-collapse
         ul.nav.navbar-nav
           li.active
-            a(href='/index') Home
+            a(href='/home') Home
           li
             a(href='/about') About
           li
@@ -28,8 +28,13 @@ block content
     p.lead
       | #{errMsg}
         
-    .stats(align='center')
-  
+    .stats(align='')
+      
+      br
+      a(position="relative", onclick="location.href='https://github.com/join'").btn.btn-block.btn-social.btn-github
+        span.fa.fa-github
+        |  Sign up to Github
+      
   footer.footer
     .container
       p.text-muted By // Avilano

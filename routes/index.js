@@ -2,17 +2,14 @@ const express = require('express');
 const github = require('octonode');
 const router = express.Router();
 const client = github.client();
+const fetch = require('node-fetch');
 
 // GET home page
 router.get('/', function(req, res, next){
-
-  console.log(process.env.CLIENT_ID);
-
   res.render('index', {
     title: 'Git Talent',
     gitClientId: process.env.CLIENT_ID
   });
-  next();
 });
 
 router.get('/gitacces', function(req, res, next){
@@ -29,7 +26,22 @@ router.get('/home', function(req, res, next){
   });
 });
 
+router.get('/about', function(req, res, next){
+  res.render('about', {
+    title: 'Git Talent About'
+  });
+});
+
 router.post('/', function(req, res, next){
+
+  fetch('https://api.github.com/users/avilano/starred').then(function(response){
+    return response.json();
+  }).then(function(response){
+    console.log('These are the starred ones from avilano' + JSON.stringify(response, null, '  '));
+  }).catch(function(err){
+    console.log('err: ' + err)
+  });
+
   client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
     if (err) {
 
