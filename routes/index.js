@@ -34,13 +34,13 @@ router.get('/about', function(req, res, next){
 
 router.post('/', function(req, res, next){
 
-  fetch('https://api.github.com/users/avilano/starred').then(function(response){
-    return response.json();
-  }).then(function(response){
-    console.log('These are the starred ones from avilano' + JSON.stringify(response, null, '  '));
-  }).catch(function(err){
-    console.log('err: ' + err)
-  });
+  // fetch('https://api.github.com/users/avilano/starred').then(function(response){
+  //   return response.json();
+  // }).then(function(response){
+  //   console.log('These are the starred ones from avilano' + JSON.stringify(response, null, '  '));
+  // }).catch(function(err){
+  //   console.log('err: ' + err)
+  // });
 
   client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
     if (err) {

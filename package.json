@@ -24,6 +24,7 @@
     "dotenv": "^2.0.0",
     "express": "~4.13.4",
     "express-session": "^1.14.0",
+    "github-calendar": "^1.1.7",
     "github-scraper": "^3.1.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
