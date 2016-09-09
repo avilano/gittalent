@@ -31,7 +31,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GitHubStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/gitacces"
+    callbackURL: "http://nodejs-avilano.rhcloud.com/gitacces"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
