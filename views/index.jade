@@ -18,35 +18,22 @@ block content
             a(href='/home') Home
           li
             a(href='/about') About
-  if (!user)
-    .container
-      .page-header
-        h1 Welcome Github Composer!
-      p.lead
-        | Please login to fetch your information.
-        br
-        br
-        a(position="relative", onclick="href='/auth/github'").btn.btn-block.btn-social.btn-github
-          span.fa.fa-github
-          |  Sign in with Github
-      //button#logout(onclick='logout()').btn.btn-primary.btn-lg.btn-block Logout
-      p.lead
-        | or input a github username.
+  .container
+    .page-header
+      h1 Welcome Github Composer!
+    p.lead
+      | Please login to fetch your information.
       br
-      form(action='/', method='post')
-        input(type='text', id='gitusr', name='gitusr', placeholder='Github Username')
-        input(type='submit', value='Submit').btn.btn-primary.btn-md.submit
-  else
-    .container
-      .page-header
-        h1 Welcome #{user.username}!
-      p.lead
-        | You are already logged-in:
-        br
-        br
-        a(position="relative", onclick="href='/gitacces'").btn.btn-block.btn-social.btn-github
-          span.fa.fa-github
-          |  Get your stats!
+      br
+      a(position="relative", onclick="href='/auth/github'").btn.btn-block.btn-social.btn-github
+        span.fa.fa-github
+        |  Sign in with Github
+    p.lead
+      | or input a github username.
+    br
+    form(action='/', method='post')
+      input(type='text', id='gitusr', name='gitusr', placeholder='Github Username')
+      input(type='submit', value='Submit').btn.btn-primary.btn-md.submit
     
       
   footer.footer

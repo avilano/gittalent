@@ -32,6 +32,7 @@ passport.use(new GitHubStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: "http://nodejs-avilano.rhcloud.com/gitacces"
+
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
@@ -99,7 +100,7 @@ function(req, res) {
         });
 
       } else {
-
+        console.log(body)
         res.render('user', {
           title: req.user.username + ' talent!',
           user: req.user.username,
@@ -125,10 +126,16 @@ router.get('/logout', function(req, res){
 });
 
 router.get('/home', function(req, res, next){
+
+  if (!req.user){
   res.render('index', {
     title: 'Git Talent',
-    user: req.user
   });
+  }
+  else {
+    res.redirect('/gitacces');
+
+  }
 });
 
 router.get('/about', function(req, res, next){
@@ -137,6 +144,7 @@ router.get('/about', function(req, res, next){
   });
 });
 
+//User inputs username POST
 router.post('/', function(req, res, next){
 
   client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
@@ -149,7 +157,7 @@ router.post('/', function(req, res, next){
       });
 
     } else {
-
+      console.log(body)
       res.render('user', {
         title: body.login + ' talent!',
         data: body
