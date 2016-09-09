@@ -65,12 +65,6 @@ router.get('/account', ensureAuthenticated, function(req, res){
   });
 });
 
-router.get('/login', function(req, res){
-  res.render('login', {
-    user: req.user.username
-  });
-});
-
 // GET /auth/github
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in GitHub authentication will involve redirecting
@@ -119,13 +113,22 @@ function(req, res) {
 
 });
 
+router.get('/login', function(req, res){
+  res.render('login', {
+    user: req.user
+  });
+});
+
 router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
 
 router.get('/home', function(req, res, next){
-  res.redirect('/');
+  res.render('index', {
+    title: 'Git Talent',
+    user: req.user
+  });
 });
 
 router.get('/about', function(req, res, next){
@@ -136,20 +139,34 @@ router.get('/about', function(req, res, next){
 
 router.post('/', function(req, res, next){
 
-  // fetch('https://api.github.com/users/avilano/starred').then(function(response){
-  //   return response.json();
-  // }).then(function(response){
-  //   console.log('These are the starred ones from avilano' + JSON.stringify(response, null, '  '));
-  // }).catch(function(err){
-  //   console.log('err: ' + err)
-  // });
-
   client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
     if (err) {
 
       res.render('error', {
         title: `${req.body.gitusr} not found`,
         errMsg: `The username ${req.body.gitusr} does not exist.`,
+        err: err
+      });
+
+    } else {
+
+      res.render('user', {
+        title: body.login + ' talent!',
+        data: body
+      });
+    }
+
+  });
+});
+
+router.get('/?:gitname', function(req, res, next){
+
+  client.get('/users/' + req.params.gitname, {}, function (err, status, body, headers) {
+    if (err) {
+
+      res.render('error', {
+        title: `${req.params.gitname} not found`,
+        errMsg: `The username ${req.params.gitname} does not exist.`,
         err: err
       });
 

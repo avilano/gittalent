@@ -39,12 +39,12 @@ block content
   else
     .container
       .page-header
-        h1 Welcome #{user}!
+        h1 Welcome #{user.username}!
       p.lead
         | You are already logged-in:
         br
         br
-        a(position="relative", onclick="location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=#{gitClientId};'").btn.btn-block.btn-social.btn-github
+        a(position="relative", onclick="href='/gitacces'").btn.btn-block.btn-social.btn-github
           span.fa.fa-github
           |  Get your stats!
     
