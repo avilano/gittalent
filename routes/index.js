@@ -54,7 +54,6 @@ router.use(passport.session());
 
 // GET home page
 router.get('/', function(req, res, next){
-
   res.render('index', {
     title: 'Git Talent'
   });
@@ -62,7 +61,7 @@ router.get('/', function(req, res, next){
 
 router.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', {
-    user: req.user.username
+    user: req.user
   });
 });
 
@@ -70,9 +69,6 @@ router.get('/login', function(req, res){
   res.render('login', {
     user: req.user.username
   });
-
-  console.log(`This is login - REQ.USER: ${req.user.username} //////////`);
-
 });
 
 // GET /auth/github
@@ -98,12 +94,11 @@ router.get('/gitacces',
 passport.authenticate('github', { failureRedirect: '/login' }),
 function(req, res) {
 
-  //console.log(`This is gitacces - REQ.USER: ${req.user.username} //////////`);
   if (req.user.username){
     client.get('/users/' + req.user.username, {}, function (err, status, body, headers) {
       if (err) {
 
-        res.render("error", {
+        res.render('error', {
           title: `${req.user.username} not found`,
           errMsg: `The username ${req.user.username} does not exist.`,
           err: err
@@ -111,8 +106,9 @@ function(req, res) {
 
       } else {
 
-        res.render("user", {
+        res.render('user', {
           title: req.user.username + ' talent!',
+          user: req.user.username,
           data: body
         });
       }
@@ -120,7 +116,7 @@ function(req, res) {
     });
 
   }
-  
+
 });
 
 router.get('/logout', function(req, res){
@@ -151,7 +147,7 @@ router.post('/', function(req, res, next){
   client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
     if (err) {
 
-      res.render("error", {
+      res.render('error', {
         title: `${req.body.gitusr} not found`,
         errMsg: `The username ${req.body.gitusr} does not exist.`,
         err: err
@@ -159,7 +155,7 @@ router.post('/', function(req, res, next){
 
     } else {
 
-      res.render("user", {
+      res.render('user', {
         title: body.login + ' talent!',
         data: body
       });
