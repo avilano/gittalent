@@ -17,6 +17,14 @@ block content
             a(href='/home') Home
           li
             a(href='/about') About
+          if user
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                | User 
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='/logout') Logout
       // /.nav-collapse
           
   // Begin page content

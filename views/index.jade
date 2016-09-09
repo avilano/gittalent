@@ -21,12 +21,12 @@ block content
   if (!user)
     .container
       .page-header
-        h1 Welcome Github person!
+        h1 Welcome Github Composer!
       p.lead
         | Please login to fetch your information.
         br
         br
-        a(position="relative", onclick="location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=#{gitClientId};'").btn.btn-block.btn-social.btn-github
+        a(position="relative", onclick="href='/auth/github'").btn.btn-block.btn-social.btn-github
           span.fa.fa-github
           |  Sign in with Github
       //button#logout(onclick='logout()').btn.btn-primary.btn-lg.btn-block Logout
@@ -41,19 +41,12 @@ block content
       .page-header
         h1 Welcome #{user}!
       p.lead
-        | Please login to fetch your information.
+        | You are already logged-in:
         br
         br
         a(position="relative", onclick="location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=#{gitClientId};'").btn.btn-block.btn-social.btn-github
           span.fa.fa-github
-          |  Sign in with Github
-      //button#logout(onclick='logout()').btn.btn-primary.btn-lg.btn-block Logout
-      p.lead
-        | or input a github username.
-      br
-      form(action='/', method='post')
-        input(type='text', id='gitusr', name='gitusr', placeholder='Github Username')
-        input(type='submit', value='Submit').btn.btn-primary.btn-md.submit
+          |  Get your stats!
     
       
   footer.footer

@@ -6,6 +6,7 @@ const github = require('octonode');
 const router = express.Router();
 const client = github.client();
 const fetch = require('node-fetch');
+
 require('dotenv').config();
 
 // Passport session setup.
@@ -30,7 +31,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GitHubStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://localhost:3000/gitacces"
+    callbackURL: "http://localhost:3000/gitacces"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
@@ -53,23 +54,24 @@ router.use(passport.session());
 
 // GET home page
 router.get('/', function(req, res, next){
+
   res.render('index', {
-    title: 'Git Talent',
-    user: req.user,
-    gitClientId: process.env.CLIENT_ID
+    title: 'Git Talent'
   });
 });
 
 router.get('/account', ensureAuthenticated, function(req, res){
-  res.render('account', { user: req.user });
+  res.render('account', {
+    user: req.user.username
+  });
 });
 
 router.get('/login', function(req, res){
   res.render('login', {
-    user: req.user
+    user: req.user.username
   });
 
-  console.log(req.user);
+  console.log(`This is login - REQ.USER: ${req.user.username} //////////`);
 
 });
 
@@ -90,13 +92,36 @@ router.get('/auth/github',
   //   request.  If authentication fails, the user will be redirected back to the
   //   login page.  Otherwise, the primary route function will be called,
   //   which, in this case, will redirect the user to the score page.
+
+
 router.get('/gitacces',
 passport.authenticate('github', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.render('score', {
-      title: 'Git Talent'
+function(req, res) {
+
+  //console.log(`This is gitacces - REQ.USER: ${req.user.username} //////////`);
+  if (req.user.username){
+    client.get('/users/' + req.user.username, {}, function (err, status, body, headers) {
+      if (err) {
+
+        res.render("error", {
+          title: `${req.user.username} not found`,
+          errMsg: `The username ${req.user.username} does not exist.`,
+          err: err
+        });
+
+      } else {
+
+        res.render("user", {
+          title: req.user.username + ' talent!',
+          data: body
+        });
+      }
+
     });
-  });
+
+  }
+  
+});
 
 router.get('/logout', function(req, res){
   req.logout();
@@ -126,7 +151,6 @@ router.post('/', function(req, res, next){
   client.get('/users/' + req.body.gitusr, {}, function (err, status, body, headers) {
     if (err) {
 
-      console.log(`Error: User ${req.body.gitusr} cannot be found.`)
       res.render("error", {
         title: `${req.body.gitusr} not found`,
         errMsg: `The username ${req.body.gitusr} does not exist.`,
