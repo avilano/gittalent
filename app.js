@@ -8,8 +8,6 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const favicon = require('serve-favicon');
 const LocalStrategy = require('passport-local').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
-const session = require('express-session');
 const socketio = require('socket.io');
 const debug = require('debug')('app');
 
@@ -28,6 +26,7 @@ app.set('view engine', 'jade');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -36,8 +35,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './public')));
 
 app.use('/', routes);
-// app.use('/courses', courses);
-// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

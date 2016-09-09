@@ -18,25 +18,43 @@ block content
             a(href='/home') Home
           li
             a(href='/about') About
-
-  .container
-    .page-header
-      h1 Welcome Github composer!
-    p.lead
-      | Please login to fetch your information.
+  if (!user)
+    .container
+      .page-header
+        h1 Welcome Github person!
+      p.lead
+        | Please login to fetch your information.
+        br
+        br
+        a(position="relative", onclick="location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=#{gitClientId};'").btn.btn-block.btn-social.btn-github
+          span.fa.fa-github
+          |  Sign in with Github
+      //button#logout(onclick='logout()').btn.btn-primary.btn-lg.btn-block Logout
+      p.lead
+        | or input a github username.
       br
+      form(action='/', method='post')
+        input(type='text', id='gitusr', name='gitusr', placeholder='Github Username')
+        input(type='submit', value='Submit').btn.btn-primary.btn-md.submit
+  else
+    .container
+      .page-header
+        h1 Welcome #{user}!
+      p.lead
+        | Please login to fetch your information.
+        br
+        br
+        a(position="relative", onclick="location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=#{gitClientId};'").btn.btn-block.btn-social.btn-github
+          span.fa.fa-github
+          |  Sign in with Github
+      //button#logout(onclick='logout()').btn.btn-primary.btn-lg.btn-block Logout
+      p.lead
+        | or input a github username.
       br
-      a(position="relative", onclick="location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=#{gitClientId};'").btn.btn-block.btn-social.btn-github
-        span.fa.fa-github
-        |  Sign in with Github
-    //button#logout(onclick='logout()').btn.btn-primary.btn-lg.btn-block Logout
-    p.lead
-      | or input a github username.
-    br
-    form(action='/', method='post')
-      input(type='text', id='gitusr', name='gitusr', placeholder='Github Username')
-      input(type='submit', value='Submit').btn.btn-primary.btn-md.submit
-      
+      form(action='/', method='post')
+        input(type='text', id='gitusr', name='gitusr', placeholder='Github Username')
+        input(type='submit', value='Submit').btn.btn-primary.btn-md.submit
+    
       
   footer.footer
     .container

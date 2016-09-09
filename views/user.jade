@@ -36,19 +36,27 @@ block content
       br
       br
       table.table.table-hover
-        tr
-          td.bio #{data.bio}
+      
+        if data.bio
+          tr
+            td.bio #{data.bio}
+        else
+            
       table.table.table-hover
         tr
           td 
             b User:
           td.user #{data.login}
+          
+        if data.email
+          tr
+            td 
+              b Email:
+            td.email #{data.email}
+        else
+          
         tr
-          td 
-            b Email:
-          td.email #{data.email}
-        tr
-          td 
+          td
             b Repositories:
           td.repo #{data.public_repos}
         tr
