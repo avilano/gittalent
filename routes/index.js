@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const express = require('express');
 const passport = require('passport');
 const session = require('express-session');
@@ -100,7 +101,7 @@ function(req, res) {
         });
 
       } else {
-        console.log(body)
+        console.log(body);
         res.render('user', {
           title: req.user.username + ' talent!',
           user: req.user.username,
@@ -157,7 +158,7 @@ router.post('/', function(req, res, next){
       });
 
     } else {
-      console.log(body)
+      console.log(body);
       res.render('user', {
         title: body.login + ' talent!',
         data: body
@@ -196,7 +197,7 @@ router.get('/?:gitname', function(req, res, next){
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
+  res.redirect('/login');
 }
 
 module.exports = router;

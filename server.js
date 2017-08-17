@@ -1,4 +1,5 @@
 #!/bin/env node
+/*jshint esversion: 6 */
 const debug = require('debug')('server');
 const app = require('./app');
 const http = require('http');
