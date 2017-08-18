@@ -32,7 +32,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GitHubStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://nodejs-avilano.rhcloud.com/gitacces"
+    callbackURL: "https://gitalent.herokuapp.com/gitacces"
 
   },
   function(accessToken, refreshToken, profile, done) {

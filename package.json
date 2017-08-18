@@ -1,6 +1,6 @@
 {
   "name": "gittalent",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "",
   "keywords": [],
   "private": true,
@@ -26,11 +26,6 @@
     "express-partials": "^0.3.0",
     "express-session": "^1.14.0",
     "github-calendar": "^1.1.7",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-livereload": "^3.8.1",
-    "gulp-nodemon": "^2.1.0",
-    "gulp-wait": "0.0.2",
     "jade": "~1.11.0",
     "morgan": "^1.7.0",
     "node-fetch": "^1.6.0",
@@ -43,6 +38,8 @@
     "socket.io": "^1.7.4"
   },
   "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0",
     "babel-eslint": "^6.1.2",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
