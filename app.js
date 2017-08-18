@@ -9,7 +9,6 @@ const passport = require('passport');
 const favicon = require('serve-favicon');
 const LocalStrategy = require('passport-local').Strategy;
 const socketio = require('socket.io');
-const debug = require('debug')('app');
 
 const routes = require('./routes/index');
 
@@ -26,10 +25,9 @@ app.set('view engine', 'jade');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 
-
+// Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, './public')));
