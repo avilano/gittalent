@@ -3,9 +3,9 @@
   "version": "1.7.0",
   "description": "",
   "keywords": [],
-  "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node test.js"
   },
   "author": {
     "name": "Alberto Vilano",
@@ -41,5 +41,15 @@
     
   },
   "bundleDependencies": [],
-  "main": "server.js"
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/avilano/gittalent"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
