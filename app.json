@@ -1,0 +1,8 @@
+{
+  "name": "Git Talent",
+  "description": "A node.js app that tracks github user data",
+  "repository": "https://git.heroku.com/gitalent.git",
+  "logo": "",
+  "keywords": ["node", "express", "heroku"],
+  "image": ""
+}

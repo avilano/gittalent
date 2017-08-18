@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const { spawn } = require('child_process');
 const request = require('request');
 const test = require('tape');
